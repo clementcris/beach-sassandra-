@@ -1,0 +1,106 @@
+/* PRO TYPOGRAPHY IMPORT MUST BE AT THE TOP */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --background: #F9F7F2; /* Sand Beige */
+  --foreground: #0C0A09; /* Deep Stone */
+  --primary: #0F4C75;    /* Lagoon Blue */
+  --secondary: #3282B8;  /* Turquoise Shore */
+  --accent: #EA580C;     /* Solaire Orange */
+  --lush: #166534;       /* Rainforest Green */
+  --glass: rgba(255, 255, 255, 0.4);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-lush: var(--lush);
+  
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  @keyframes scan {
+    0% { top: 0%; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* Liquid Glass Animations */
+  @keyframes morph {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  }
+
+  --animate-scan: scan 2s linear infinite;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-float-delayed: float-delayed 5s ease-in-out infinite;
+  --animate-morph: morph 8s ease-in-out infinite;
+}
+
+/* 3D Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-mid {
+  perspective: 2000px;
+}
+
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* PRO LIQUID GLASS UTILITIES */
+@utility glass-pro {
+  background: var(--glass);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(15, 76, 117, 0.1);
+}
+
+@utility glass-card {
+  @apply glass-pro rounded-[2.5rem] p-8 border-b-4 border-white/40 shadow-2xl transition-all duration-500;
+}
+
+.glass-card:hover {
+  @apply border-b-white/60 -translate-y-2;
+  box-shadow: 0 20px 40px -10px rgba(15, 76, 117, 0.2);
+}
+
+.tropical-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+.solaire-text {
+  background: linear-gradient(to right, var(--accent), #FBBF24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
