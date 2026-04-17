@@ -427,30 +427,32 @@ export default async function Home() {
       </section>
 
       {/* TARIFS & RÉSERVATION */}
-      <section id="tarifs" className="py-16 md:py-32 bg-accent relative overflow-hidden">
+      <section id="tarifs" className="py-12 md:py-28 bg-accent relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -mr-48 -mt-48" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl -ml-48 -mb-48" />
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 relative">
-          {/* En-tête centré sur mobile */}
-          <div className="text-center md:text-left max-w-3xl mx-auto md:mx-0 mb-12 md:mb-20">
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-heading font-black text-white mb-8 tracking-tighter italic leading-none">
+        {/* Conteneur unique centré pour le titre ET les cartes */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative">
+
+          {/* En-tête : centré sur mobile, aligné à gauche sur desktop */}
+          <div className="text-center md:text-left mb-10 md:mb-16">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-heading font-black text-white mb-6 tracking-tighter italic leading-none">
               Prévoyez votre <br/><span className="text-orange-200">Escale Solaire</span>
             </h2>
-            <div className="flex items-start gap-4 bg-orange-50 p-5 rounded-[2rem] border-2 border-orange-100 max-w-lg mx-auto md:mx-0 mb-6 text-left">
-              <div className="h-10 w-10 bg-white rounded-xl shadow-inner flex items-center justify-center flex-shrink-0">🎁</div>
+            <div className="flex items-start gap-4 bg-orange-50 p-4 sm:p-5 rounded-[1.5rem] border-2 border-orange-100 max-w-lg mx-auto md:mx-0 mb-5 text-left">
+              <div className="h-9 w-9 sm:h-10 sm:w-10 bg-white rounded-xl shadow-inner flex items-center justify-center flex-shrink-0">🎁</div>
               <p className="text-sm font-bold text-gray-600 leading-tight">
                 <span className="text-accent font-black uppercase tracking-tighter">Votre Sésame Inclut :</span><br/>
                 Transport AR, 3 nuits immersives, Pensions complètes & Sélection de rafraîchissements.
               </p>
             </div>
-            <p className="text-[10px] font-bold text-orange-100 uppercase tracking-widest pl-4 border-l-2 border-orange-300 text-left">
-              ✨ Un Bar Privé & une carte de Mixologie seront disponibles au campement pour vos envies de cocktails et spiritueux premium.
+            <p className="text-[10px] font-bold text-orange-100 uppercase tracking-widest pl-4 border-l-2 border-orange-300 text-left max-w-lg mx-auto md:mx-0">
+              ✨ Un Bar Privé & une carte de Mixologie disponibles au campement.
             </p>
           </div>
 
-          {/* Grille : 1 colonne mobile, 2 colonnes desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
+          {/* Grille des cartes — même conteneur, même largeur max */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
             {/* Solo Card */}
             <motion.div 
               whileHover={{ y: -4 }}
