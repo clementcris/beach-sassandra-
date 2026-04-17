@@ -16,7 +16,13 @@ export async function login(formData: FormData) {
   })
 
   if (error) {
-    redirect(`/login?error=${encodeURIComponent(error.message)}`)
+    let errorMessage = error.message
+    if (errorMessage.includes('Invalid login credentials')) {
+      errorMessage = "Email ou mot de passe incorrect."
+    } else if (errorMessage.includes('Email not confirmed')) {
+      errorMessage = "Veuillez confirmer votre adresse email."
+    }
+    redirect(`/login?error=${encodeURIComponent(errorMessage)}`)
   }
 
   revalidatePath('/', 'layout')
@@ -41,7 +47,20 @@ export async function register(formData: FormData) {
   })
 
   if (error) {
-    redirect(`/register?error=${encodeURIComponent(error.message)}`)
+    let errorMessage = error.message
+    
+    // Traductions des erreurs communes
+    if (errorMessage.includes('security purposes')) {
+      errorMessage = "Par mesure de sécurité, veuillez patienter une minute avant de réessayer."
+    } else if (errorMessage.includes('registered')) {
+      errorMessage = "Cet email est déjà utilisé."
+    } else if (errorMessage.includes('least 6 characters')) {
+      errorMessage = "Le mot de passe doit contenir au moins 6 caractères."
+    } else if (errorMessage.includes('Invalid email')) {
+      errorMessage = "L'adresse email n'est pas valide."
+    }
+
+    redirect(`/register?error=${encodeURIComponent(errorMessage)}`)
   }
 
   // 2. Créer le profil dans public.users avec nom + téléphone

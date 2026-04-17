@@ -1,5 +1,6 @@
 import { login } from '@/app/actions/auth'
 import Link from 'next/link'
+import { SubmitButton } from '@/components/auth/SubmitButton'
 
 export default async function LoginPage(props: { searchParams: Promise<{ error?: string }> }) {
   const searchParams = await props.searchParams;
@@ -48,12 +49,7 @@ export default async function LoginPage(props: { searchParams: Promise<{ error?:
               className="w-full px-6 py-4 bg-gray-50 border-2 border-transparent rounded-[2rem] focus:outline-none focus:border-orange-500 focus:bg-white transition-all font-bold text-gray-900 shadow-inner"
             />
           </div>
-          <button 
-            type="submit" 
-            className="w-full flex justify-center py-6 px-4 bg-orange-600 hover:bg-orange-500 text-white font-black rounded-[2rem] shadow-2xl shadow-orange-100 transition-all transform active:scale-95 uppercase tracking-widest text-sm border-b-4 border-orange-800"
-          >
-            Embarquer
-          </button>
+          <SubmitButton label="Embarquer" />
         </form>
 
         <p className="mt-10 text-center text-xs font-bold text-gray-400 uppercase tracking-widest">
