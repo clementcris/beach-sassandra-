@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-import { createClient } from '@/lib/supabase/server'
+import { createClient, createAdminClient } from '@/lib/supabase/server'
 
 export async function login(formData: FormData) {
   const supabase = await createClient()
@@ -37,13 +37,13 @@ export async function register(formData: FormData) {
   const nom = formData.get('nom') as string
   const telephone = formData.get('telephone') as string
 
-  // 1. Créer le compte Supabase Auth
-  const { data: authData, error } = await supabase.auth.signUp({
+  // 1. Créer le compte via l'API Admin pour auto-confirmer l'email
+  const adminSupabase = await createAdminClient()
+  const { data: authData, error } = await adminSupabase.auth.admin.createUser({
     email,
     password,
-    options: {
-      data: { nom, telephone }
-    }
+    email_confirm: true,
+    user_metadata: { nom, telephone }
   })
 
   if (error) {
@@ -64,6 +64,12 @@ export async function register(formData: FormData) {
 
     redirect(`/register?error=${encodeURIComponent(errorMessage)}`)
   }
+
+  // 2. Connecter l'utilisateur automatiquement
+  await supabase.auth.signInWithPassword({
+    email,
+    password,
+  })
 
   // 2. Créer le profil dans public.users avec nom + téléphone
   if (authData.user) {
