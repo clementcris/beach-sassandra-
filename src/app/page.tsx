@@ -102,7 +102,7 @@ export default async function Home() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              className="text-7xl md:text-9xl font-heading font-black text-white mb-8 leading-[0.85] tracking-tighter"
+              className="text-5xl sm:text-7xl md:text-9xl font-heading font-black text-white mb-6 leading-[0.85] tracking-tighter"
             >
               VOTRE ESCALE <br /> 
               <span className="solaire-text">AKWABA.</span>
@@ -112,7 +112,7 @@ export default async function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2, duration: 1 }}
-              className="text-white/80 text-xl md:text-3xl font-medium mb-12 max-w-2xl leading-relaxed font-body"
+              className="text-white/80 text-base sm:text-xl md:text-3xl font-medium mb-10 max-w-2xl leading-relaxed font-body"
             >
               Vivez l'inoubliable : 3 jours d'évasion sauvage et chic entre l'écume de Sassandra et la chaleur de nos feux de camp.
             </motion.p>
@@ -427,65 +427,67 @@ export default async function Home() {
       </section>
 
       {/* TARIFS & RÉSERVATION */}
-      <section id="tarifs" className="py-32 bg-accent relative overflow-hidden">
+      <section id="tarifs" className="py-16 md:py-32 bg-accent relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -mr-48 -mt-48" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl -ml-48 -mb-48" />
 
         <div className="max-w-7xl mx-auto px-6 sm:px-8 relative">
-          <div className="max-w-3xl mb-20">
-            <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-10 tracking-tighter italic leading-none">
+          {/* En-tête centré sur mobile */}
+          <div className="text-center md:text-left max-w-3xl mx-auto md:mx-0 mb-12 md:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-heading font-black text-white mb-8 tracking-tighter italic leading-none">
               Prévoyez votre <br/><span className="text-orange-200">Escale Solaire</span>
             </h2>
-            <div className="flex items-center gap-4 bg-orange-50 p-6 rounded-[2rem] border-2 border-orange-100 max-w-lg mb-8">
-              <div className="h-12 w-12 bg-white rounded-xl shadow-inner flex items-center justify-center">🎁</div>
+            <div className="flex items-start gap-4 bg-orange-50 p-5 rounded-[2rem] border-2 border-orange-100 max-w-lg mx-auto md:mx-0 mb-6 text-left">
+              <div className="h-10 w-10 bg-white rounded-xl shadow-inner flex items-center justify-center flex-shrink-0">🎁</div>
               <p className="text-sm font-bold text-gray-600 leading-tight">
                 <span className="text-accent font-black uppercase tracking-tighter">Votre Sésame Inclut :</span><br/>
                 Transport AR, 3 nuits immersives, Pensions complètes & Sélection de rafraîchissements.
               </p>
             </div>
-            <p className="text-[10px] font-bold text-orange-100 uppercase tracking-widest pl-4 border-l-2 border-orange-300">
+            <p className="text-[10px] font-bold text-orange-100 uppercase tracking-widest pl-4 border-l-2 border-orange-300 text-left">
               ✨ Un Bar Privé & une carte de Mixologie seront disponibles au campement pour vos envies de cocktails et spiritueux premium.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {/* Grille : 1 colonne mobile, 2 colonnes desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
             {/* Solo Card */}
             <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-white rounded-[4rem] p-12 shadow-2xl relative border-b-8 border-gray-200"
+              whileHover={{ y: -4 }}
+              className="bg-white rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-12 shadow-2xl relative border-b-8 border-gray-200"
             >
-              <div className="absolute top-0 right-12 transform -translate-y-1/2 bg-lush text-white font-black px-6 py-2 rounded-full text-sm uppercase tracking-widest">
+              <div className="absolute top-0 right-8 md:right-12 transform -translate-y-1/2 bg-lush text-white font-black px-5 py-2 rounded-full text-xs md:text-sm uppercase tracking-widest">
                 Populaire
               </div>
 
               {/* Image sésame */}
-              <div className="absolute top-12 right-6 w-32 h-32 pointer-events-none transform rotate-12 opacity-90">
+              <div className="absolute top-8 right-4 md:top-12 md:right-6 w-24 h-24 md:w-32 md:h-32 pointer-events-none transform rotate-12 opacity-90">
                 <img src="/images/sesame_solo.png" alt="Solo Pass" className="w-full h-full object-contain drop-shadow-2xl" />
               </div>
 
-              <h4 className="text-4xl font-heading font-black text-foreground mb-2">Pass Solo</h4>
-              <p className="text-accent font-bold mb-8 uppercase tracking-widest text-sm">Pour 1 Aventurier</p>
+              <h4 className="text-3xl md:text-4xl font-heading font-black text-foreground mb-2">Pass Solo</h4>
+              <p className="text-accent font-bold mb-6 uppercase tracking-widest text-xs md:text-sm">Pour 1 Aventurier</p>
               
-              <div className="mb-10 flex items-baseline gap-2">
-                <span className="text-7xl font-heading font-black text-foreground tracking-tighter">50K</span>
-                <span className="text-gray-400 font-bold text-xl uppercase">FCFA</span>
+              <div className="mb-8 flex items-baseline gap-2">
+                <span className="text-6xl md:text-7xl font-heading font-black text-foreground tracking-tighter">50K</span>
+                <span className="text-gray-400 font-bold text-lg uppercase">FCFA</span>
               </div>
               
-              <ul className="space-y-4 mb-12 text-foreground/70 font-medium font-body">
-                <li className="flex items-center gap-3"><CheckCircle2 className="h-6 w-6 text-lush flex-shrink-0" /> Transport AR climatisé</li>
-                <li className="flex items-center gap-3"><CheckCircle2 className="h-6 w-6 text-lush flex-shrink-0" /> Tente partagée (lits séparés)</li>
-                <li className="flex items-center gap-3"><CheckCircle2 className="h-6 w-6 text-lush flex-shrink-0" /> Repas complets & Boissons</li>
-                <li className="flex items-center gap-3"><CheckCircle2 className="h-6 w-6 text-lush flex-shrink-0" /> Accès à toutes les sorties</li>
+              <ul className="space-y-3 mb-8 text-foreground/70 font-medium font-body text-sm">
+                <li className="flex items-center gap-3"><CheckCircle2 className="h-5 w-5 text-lush flex-shrink-0" /> Transport AR climatisé</li>
+                <li className="flex items-center gap-3"><CheckCircle2 className="h-5 w-5 text-lush flex-shrink-0" /> Tente partagée (lits séparés)</li>
+                <li className="flex items-center gap-3"><CheckCircle2 className="h-5 w-5 text-lush flex-shrink-0" /> Repas complets & Boissons</li>
+                <li className="flex items-center gap-3"><CheckCircle2 className="h-5 w-5 text-lush flex-shrink-0" /> Accès à toutes les sorties</li>
               </ul>
 
               {user ? (
                 <BookingButton 
                   typeTicket="solo" 
                   label="RÉSERVER SOLO" 
-                  className="w-full font-black py-6 rounded-3xl transition bg-accent text-white hover:bg-orange-700 shadow-xl shadow-orange-200 uppercase tracking-widest border-b-4 border-orange-800"
+                  className="w-full font-black py-5 rounded-3xl transition bg-accent text-white hover:bg-orange-700 shadow-xl shadow-orange-200 uppercase tracking-widest border-b-4 border-orange-800 text-sm"
                 />
               ) : (
-                <Link href="/login" className="w-full block text-center font-black py-6 rounded-3xl transition bg-gray-900 text-white hover:bg-black shadow-xl uppercase tracking-widest">
+                <Link href="/login" className="w-full block text-center font-black py-5 rounded-3xl transition bg-gray-900 text-white hover:bg-black shadow-xl uppercase tracking-widest text-sm">
                   SE CONNECTER
                 </Link>
               )}
@@ -493,40 +495,40 @@ export default async function Home() {
 
             {/* Couple Card */}
             <motion.div 
-              whileHover={{ y: -10 }}
-              className="bg-yellow-400 rounded-[4rem] p-12 shadow-2xl relative border-b-8 border-yellow-600"
+              whileHover={{ y: -4 }}
+              className="bg-yellow-400 rounded-[2.5rem] md:rounded-[4rem] p-8 md:p-12 shadow-2xl relative border-b-8 border-yellow-600"
             >
-              <div className="absolute top-0 right-12 transform -translate-y-1/2 bg-accent text-white font-black px-6 py-2 rounded-full text-sm uppercase tracking-widest">
+              <div className="absolute top-0 right-8 md:right-12 transform -translate-y-1/2 bg-accent text-white font-black px-5 py-2 rounded-full text-xs md:text-sm uppercase tracking-widest">
                 -20.000F Offerts
               </div>
 
               {/* Image sésame duo */}
-              <div className="absolute top-12 right-6 w-32 h-32 pointer-events-none transform -rotate-12 opacity-90">
+              <div className="absolute top-8 right-4 md:top-12 md:right-6 w-24 h-24 md:w-32 md:h-32 pointer-events-none transform -rotate-12 opacity-90">
                 <img src="/images/sesame_duo.png" alt="Couple Pass" className="w-full h-full object-contain drop-shadow-2xl" />
               </div>
 
-              <h3 className="text-4xl font-heading font-black text-foreground mb-2 tracking-tighter italic">Pass Couple</h3>
-              <p className="text-lush font-black uppercase tracking-[0.2em] text-[10px] mb-8">Pour 2 Amoureux de l'Océan</p>
+              <h3 className="text-3xl md:text-4xl font-heading font-black text-foreground mb-2 tracking-tighter italic">Pass Couple</h3>
+              <p className="text-lush font-black uppercase tracking-[0.2em] text-[10px] mb-6">Pour 2 Amoureux de l&apos;Océan</p>
               
-              <div className="text-6xl font-heading font-black text-foreground tracking-tighter mb-10 flex items-start gap-1">
+              <div className="text-5xl md:text-6xl font-heading font-black text-foreground tracking-tighter mb-8 flex items-start gap-1">
                 80K <span className="text-sm text-gray-500 mt-2 font-body">FCFA</span>
               </div>
 
-              <ul className="space-y-4 mb-12 font-body">
-                <li className="flex items-center gap-4 font-bold text-foreground/70"><div className="h-2 w-2 bg-accent rounded-full flex-shrink-0"></div> Tout en duo (Logistique incluse)</li>
-                <li className="flex items-center gap-4 font-bold text-foreground/70"><div className="h-2 w-2 bg-accent rounded-full flex-shrink-0"></div> Tente privée "Nid d'amour"</li>
-                <li className="flex items-center gap-4 font-bold text-foreground/70"><div className="h-2 w-2 bg-accent rounded-full flex-shrink-0"></div> Tous les repas & Boissons</li>
-                <li className="flex items-center gap-4 font-bold text-foreground/70"><div className="h-2 w-2 bg-accent rounded-full flex-shrink-0"></div> Cadeau souvenir offert</li>
+              <ul className="space-y-3 mb-8 font-body text-sm">
+                <li className="flex items-center gap-3 font-bold text-foreground/70"><div className="h-2 w-2 bg-accent rounded-full flex-shrink-0"></div> Tout en duo (Logistique incluse)</li>
+                <li className="flex items-center gap-3 font-bold text-foreground/70"><div className="h-2 w-2 bg-accent rounded-full flex-shrink-0"></div> Tente privée &quot;Nid d&apos;amour&quot;</li>
+                <li className="flex items-center gap-3 font-bold text-foreground/70"><div className="h-2 w-2 bg-accent rounded-full flex-shrink-0"></div> Tous les repas & Boissons</li>
+                <li className="flex items-center gap-3 font-bold text-foreground/70"><div className="h-2 w-2 bg-accent rounded-full flex-shrink-0"></div> Cadeau souvenir offert</li>
               </ul>
 
               {user ? (
                 <BookingButton 
                   typeTicket="couple" 
                   label="DEVENIR DUO SOLAIRE" 
-                  className="w-full font-black py-6 rounded-[2rem] transition bg-lush text-white hover:bg-green-600 shadow-2xl uppercase tracking-widest text-sm border-b-4 border-green-900"
+                  className="w-full font-black py-5 rounded-[2rem] transition bg-lush text-white hover:bg-green-600 shadow-2xl uppercase tracking-widest text-sm border-b-4 border-green-900"
                 />
               ) : (
-                <Link href="/login" className="w-full flex justify-center py-6 bg-lush text-white rounded-[2rem] font-black hover:bg-green-600 transition shadow-2xl uppercase tracking-widest text-sm border-b-4 border-green-900">
+                <Link href="/login" className="w-full flex justify-center py-5 bg-lush text-white rounded-[2rem] font-black hover:bg-green-600 transition shadow-2xl uppercase tracking-widest text-sm border-b-4 border-green-900">
                   DEVENIR DUO SOLAIRE
                 </Link>
               )}
