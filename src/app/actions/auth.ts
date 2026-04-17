@@ -56,6 +56,8 @@ export async function register(formData: FormData) {
       errorMessage = "Cet email est déjà utilisé."
     } else if (errorMessage.includes('least 6 characters')) {
       errorMessage = "Le mot de passe doit contenir au moins 6 caractères."
+    } else if (errorMessage.includes('at least one character of each')) {
+      errorMessage = "Le mot de passe doit contenir des lettres (majuscules/minuscules) et des chiffres."
     } else if (errorMessage.includes('Invalid email')) {
       errorMessage = "L'adresse email n'est pas valide."
     }
